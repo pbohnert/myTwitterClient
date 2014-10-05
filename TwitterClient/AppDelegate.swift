@@ -16,6 +16,10 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
         // Override point for customization after application launch.
+        let navigationController = application.windows[0].rootViewController as UINavigationController
+        navigationController.navigationBar.barTintColor = UIColor.blueColor()
+        let titleDict: NSDictionary = [NSForegroundColorAttributeName: UIColor.whiteColor()]
+        navigationController.navigationBar.titleTextAttributes = titleDict
         return true
     }
 
