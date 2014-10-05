@@ -12,8 +12,7 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
 
     @IBOutlet weak var tableView: UITableView!
     
-    var tweets:  [[String:String]]!
-    
+    var tweets:  [[String:String]]!    
     
     override func viewDidLoad() {
         super.viewDidLoad()
