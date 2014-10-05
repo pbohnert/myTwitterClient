@@ -16,8 +16,16 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
         // Override point for customization after application launch.
+        //next two lines are one way to set background color on nav bar.
         let navigationController = application.windows[0].rootViewController as UINavigationController
-        navigationController.navigationBar.barTintColor = UIColor.blueColor()
+        navigationController.navigationBar.barTintColor = UIColor(red: 119/255.0, green: 183/255.0, blue: 238/255.0, alpha: 8/255.0)  //one way to set background color on nav bar.
+        
+        //next three lines are another way to set background color on nav bar AND text color for buttons.
+        var navigationBarAppearace = UINavigationBar.appearance()
+        //navigationBarAppearace.barTintColor = UIColor.whiteColor()  //another way of setting background color on the nav bar
+        navigationBarAppearace.tintColor = UIColor.whiteColor()   // how you set text color for nav bar button items.
+        
+        //next two lines are how we set text color for nav bar title.
         let titleDict: NSDictionary = [NSForegroundColorAttributeName: UIColor.whiteColor()]
         navigationController.navigationBar.titleTextAttributes = titleDict
         return true
