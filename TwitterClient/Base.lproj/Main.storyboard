@@ -4,6 +4,36 @@
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6238"/>
     </dependencies>
     <scenes>
+        <!--Login View Controller-->
+        <scene sceneID="W7z-jy-zzq">
+            <objects>
+                <viewController id="PYq-Nb-QNs" customClass="LoginViewController" customModule="TwitterClient" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="maV-Zx-GiO"/>
+                        <viewControllerLayoutGuide type="bottom" id="wOz-sU-Eag"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="idS-fJ-rXJ">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="uCH-Z4-aCE">
+                                <rect key="frame" x="116" y="187" width="110" height="30"/>
+                                <state key="normal" title="Log in to Twitter">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="onLogin:" destination="PYq-Nb-QNs" eventType="touchUpInside" id="4eQ-N3-gGz"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                    <navigationItem key="navigationItem" id="KcY-5G-v1g"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="NBA-8P-LHd" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="478" y="-502"/>
+        </scene>
         <!--Home-->
         <scene sceneID="ufC-wZ-h7g">
             <objects>
@@ -107,7 +137,7 @@
                     </navigationBar>
                     <nil name="viewControllers"/>
                     <connections>
-                        <segue destination="vXZ-lx-hvc" kind="relationship" relationship="rootViewController" id="Mpp-EK-p1R"/>
+                        <segue destination="PYq-Nb-QNs" kind="relationship" relationship="rootViewController" id="uyY-b9-Klz"/>
                     </connections>
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="U3J-wj-9T1" userLabel="First Responder" sceneMemberID="firstResponder"/>

@@ -52,7 +52,31 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     func applicationWillTerminate(application: UIApplication) {
         // Called when the application is about to terminate. Save data if appropriate. See also applicationDidEnterBackground:.
     }
+    
+    func application(application: UIApplication, openURL url: NSURL, sourceApplication: String, annotation: AnyObject?) -> Bool {
+        TwitterClient.sharedInstance.fetchAccessTokenWithPath("oauth/access_token", method: "POST", requestToken: BDBOAuthToken(queryString: url.query), success: { (accessToken: BDBOAuthToken!) -> Void in
+            println("Got the access token!")
+            TwitterClient.sharedInstance.requestSerializer.saveAccessToken(accessToken)
+            
+            //call to get current user
+            TwitterClient.sharedInstance.GET("1.1/account/verify_credentials.json", parameters: nil, success: { (operation: AFHTTPRequestOperation!, response: AnyObject!) -> Void in
+                println("user: \(response)")
+                }, failure: { (operation: AFHTTPRequestOperation!, error: NSError!) -> Void in
+                    println("Error getting current user")
+                })
+            //call to get home timeline
+            TwitterClient.sharedInstance.GET("1.1/statuses/home_timeline.json", parameters: nil, success:  { (operations: AFHTTPRequestOperation!, response: AnyObject!) -> Void in
+                println("home timeline \(response)")
+                }, failure: { (operation: AFHTTPRequestOperation!, error: NSError!) -> Void in
+                    println("Error getting home timeline")
+                })
 
+            }) { (error: NSError!) -> Void in
+                println("Failed to receive the access token")
+        }
+        return true
+        // must add this method in application delegate when calling out to another application URL and returning ... pbohnert 06Oct2014
+    }
 
 }
 

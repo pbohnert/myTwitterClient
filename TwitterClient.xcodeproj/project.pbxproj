@@ -16,6 +16,7 @@
 		D04F993319E1C61B0033855E /* TwitterClientTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D04F993219E1C61B0033855E /* TwitterClientTests.swift */; };
 		D04F993D19E1C6FA0033855E /* TweetCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D04F993C19E1C6FA0033855E /* TweetCell.swift */; };
 		D0A7462E19E2044F00D5BCCC /* TwitterClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0A7462D19E2044F00D5BCCC /* TwitterClient.swift */; };
+		D0A7463019E209F200D5BCCC /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0A7462F19E209F200D5BCCC /* LoginViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -44,6 +45,7 @@
 		D04F993C19E1C6FA0033855E /* TweetCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TweetCell.swift; sourceTree = "<group>"; };
 		D04F993E19E1D1360033855E /* TwitterClient-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "TwitterClient-Bridging-Header.h"; sourceTree = "<group>"; };
 		D0A7462D19E2044F00D5BCCC /* TwitterClient.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TwitterClient.swift; sourceTree = "<group>"; };
+		D0A7462F19E209F200D5BCCC /* LoginViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		DA76AF83324A37545E9C5145 /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
@@ -99,6 +101,7 @@
 			children = (
 				D0A7462C19E203DA00D5BCCC /* API */,
 				D04F991C19E1C61B0033855E /* AppDelegate.swift */,
+				D0A7462F19E209F200D5BCCC /* LoginViewController.swift */,
 				D04F993C19E1C6FA0033855E /* TweetCell.swift */,
 				D04F991E19E1C61B0033855E /* ViewController.swift */,
 				D04F992019E1C61B0033855E /* Main.storyboard */,
@@ -290,6 +293,7 @@
 				D0A7462E19E2044F00D5BCCC /* TwitterClient.swift in Sources */,
 				D04F993D19E1C6FA0033855E /* TweetCell.swift in Sources */,
 				D04F991F19E1C61B0033855E /* ViewController.swift in Sources */,
+				D0A7463019E209F200D5BCCC /* LoginViewController.swift in Sources */,
 				D04F991D19E1C61B0033855E /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
