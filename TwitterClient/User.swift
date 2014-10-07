@@ -9,5 +9,8 @@
 import UIKit
 
 class User: NSObject {
-   
+    var name: String?
+    var screenName: String?
+    var profileImageURL: String?
+    var tagline: String?
 }
