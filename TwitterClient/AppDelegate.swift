@@ -60,13 +60,20 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             
             //call to get current user
             TwitterClient.sharedInstance.GET("1.1/account/verify_credentials.json", parameters: nil, success: { (operation: AFHTTPRequestOperation!, response: AnyObject!) -> Void in
-                println("user: \(response)")
+                //println("user: \(response)")
+                var user = User(dictionary: response as NSDictionary)
+                println("user: \(user.name)")
                 }, failure: { (operation: AFHTTPRequestOperation!, error: NSError!) -> Void in
                     println("Error getting current user")
                 })
             //call to get home timeline
             TwitterClient.sharedInstance.GET("1.1/statuses/home_timeline.json", parameters: nil, success:  { (operations: AFHTTPRequestOperation!, response: AnyObject!) -> Void in
-                println("home timeline \(response)")
+                //println("home timeline \(response)")
+                var tweets = Tweet.tweetsWithArray(response as [NSDictionary])
+                
+                for tweet in tweets {
+                    println("text: \(tweet.text), created: \(tweet.createdAt)")
+                }
                 }, failure: { (operation: AFHTTPRequestOperation!, error: NSError!) -> Void in
                     println("Error getting home timeline")
                 })
