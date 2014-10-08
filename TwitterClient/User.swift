@@ -7,6 +7,7 @@
 //
 
 import UIKit
+var _currentUser: User?
 
 class User: NSObject {
     var name: String?
@@ -22,5 +23,14 @@ class User: NSObject {
         screenName = dictionary["screen_name"] as? String
         profileImageURL = dictionary["profile_image_url"] as? String
         tagline = dictionary["description"] as? String
+    }
+    
+    class var currentUser: User? {
+        get {
+            return _currentUser
+        }
+        set(user) {
+            _currentUser = user
+        }
     }
 }
