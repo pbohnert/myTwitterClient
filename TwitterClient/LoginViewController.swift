@@ -14,7 +14,6 @@ class LoginViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
         // Do any additional setup after loading the view.
     }
 
@@ -24,6 +23,7 @@ class LoginViewController: UIViewController {
     }
     
     @IBAction func onLogin(sender: AnyObject) {
+        println("doing our IBAction")
         TwitterClient.sharedInstance.loginWithCompletion() {
             (user: User?, error: NSError?) in
             if user != nil {
@@ -31,6 +31,7 @@ class LoginViewController: UIViewController {
                 self.performSegueWithIdentifier("loginSegue", sender: self)
             } else {
                 // handle login error
+                println("couldn't get user")
             }
         }
     }
