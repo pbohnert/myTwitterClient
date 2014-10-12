@@ -16,6 +16,21 @@ class TweetCell: UITableViewCell {
     @IBOutlet weak var timestampLabel: UILabel!
     @IBOutlet weak var tweetLabel: UILabel!
     
+    var tweet: Tweet? {
+        didSet {
+//            self.personImage.setImageWithURL(self.tweet!.user?.profileImageURL)
+            self.nameLabel.text = self.tweet!.user.name
+            self.useridLabel.text = "@\(self.tweet!.user.screenName)"
+            self.tweetLabel.text = self.tweet!.text
+//            self.timestampLabel.text = self.tweet!.createdAt as String
+            
+            self.personImage.layer.cornerRadius = 10.0
+            self.personImage.clipsToBounds = true
+            
+            self.layoutIfNeeded()
+        }
+    }
+    
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code

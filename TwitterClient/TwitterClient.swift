@@ -77,7 +77,7 @@ class TwitterClient: BDBOAuth1RequestOperationManager {
                     println("Error getting current user")
                     self.loginCompletion?(user: nil, error: error)
             })
-            }) { (error: NSError!) -> Void in
+        }) { (error: NSError!) -> Void in
                 println("Failed to receive the access token")
                 self.loginCompletion?(user: nil, error: error)
         }

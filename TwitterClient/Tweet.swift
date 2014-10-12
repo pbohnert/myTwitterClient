@@ -9,19 +9,20 @@
 import UIKit
 
 class Tweet: NSObject {
-    var user: User?
-    var text: String?
-    var createdAtString: String?
-    var createdAt: NSDate?
+    
+    var user: User!
+    var text: String!
+    var createdAtString: String!
+    var createdAt: NSDate!
     
     init(dictionary: NSDictionary) {
-        user = User(dictionary: dictionary["user"] as NSDictionary)
-        text = dictionary["text"] as? String
-        createdAtString = dictionary["created_at"] as? String
+        self.user = User(dictionary: dictionary["user"] as NSDictionary)
+        self.text = dictionary["text"] as? String
+        self.createdAtString = dictionary["created_at"] as? String
         
         var formatter = NSDateFormatter()
         formatter.dateFormat = "EEE MMM d HH:mm:ss Z y"
-        createdAt = formatter.dateFromString(createdAtString!)
+        self.createdAt = formatter.dateFromString(createdAtString!)
         }
     
     class func tweetsWithArray(array: [NSDictionary]) -> [Tweet] {

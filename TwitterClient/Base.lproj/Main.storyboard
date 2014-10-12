@@ -30,7 +30,7 @@
                     </view>
                     <navigationItem key="navigationItem" id="KcY-5G-v1g"/>
                     <connections>
-                        <segue destination="vXZ-lx-hvc" kind="modal" identifier="loginSegue" id="4MK-B6-uNA"/>
+                        <segue destination="vXZ-lx-hvc" kind="modal" id="6UC-60-AJN"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="NBA-8P-LHd" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -40,7 +40,7 @@
         <!--Home-->
         <scene sceneID="ufC-wZ-h7g">
             <objects>
-                <viewController id="vXZ-lx-hvc" customClass="TweetsViewController" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="TweetsViewController" id="vXZ-lx-hvc" customClass="TweetsViewController" customModule="TwitterClient" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="jyV-Pf-zRb"/>
                         <viewControllerLayoutGuide type="bottom" id="2fi-mo-0CV"/>
@@ -122,7 +122,7 @@
                         </barButtonItem>
                     </navigationItem>
                     <connections>
-                        <outlet property="tableView" destination="wIH-OD-M3P" id="4Kx-E6-LrB"/>
+                        <outlet property="tableView" destination="wIH-OD-M3P" id="9GW-NJ-mLb"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="x5A-6p-PRh" sceneMemberID="firstResponder"/>

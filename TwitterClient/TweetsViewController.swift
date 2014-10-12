@@ -8,19 +8,23 @@
 
 import UIKit
 
-class ViewController: UIViewController, UITableViewDataSource, UITableViewDelegate {
+class TweetsViewController: UIViewController, UITableViewDataSource, UITableViewDelegate {
 
     @IBOutlet weak var tableView: UITableView!
     
-    var tweets:  [[String:String]]!    
+    var tweets = [Tweet]()
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        tweets = [["name":"Peter", "userid":"ptbohnert", "tweet": "I'm really enjoying this class and wondering if I'll catch up on homework EVER!"],
-                ["name" : "Isabel", "userid" : "iuser", "tweet": "Gee, my commute is long.  I wonder if I should rent a car next week?"],
-                ["name" : "Jonathan", "userid" : "juser", "tweet": "Really trying to get enough done at work that I can take tomorrow off to work on homework"]]
-        
+        TwitterClient.sharedInstance.homeTimelineWithParams(nil, completion: { (tweets, error) -> () in
+            if (error == nil) {
+                self.tweets = tweets!
+                self.tableView.reloadData()
+            } else {
+                println("error loading tweets")
+            }
+        })
         
         tableView.dataSource = self
         tableView.delegate = self
@@ -29,20 +33,14 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
 
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         var cell = tableView.dequeueReusableCellWithIdentifier("TweetCell") as TweetCell
-        
-        var tweet = tweets[indexPath.row]
-        
-        cell.nameLabel.text = tweet["name"]
-        cell.useridLabel.text = tweet["userid"]
-        cell.tweetLabel.text = tweet["tweet"]
-        cell.timestampLabel.text = "2h"
-        
+        cell.tweet = self.tweets[indexPath.row]
+
         return cell
         
     }
     
     func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return tweets.count
+        return self.tweets.count
     }
     
     override func didReceiveMemoryWarning() {
