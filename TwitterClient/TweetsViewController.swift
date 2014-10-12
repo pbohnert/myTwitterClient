@@ -1,5 +1,5 @@
 //
-//  ViewController.swift
+//  TweetsViewController.swift
 //  TwitterClient
 //
 //  Created by Peter Bohnert on 10/5/14.
@@ -9,13 +9,15 @@
 import UIKit
 
 class TweetsViewController: UIViewController, UITableViewDataSource, UITableViewDelegate {
-
+    @IBOutlet weak var signoutButton: UIBarButtonItem!
     @IBOutlet weak var tableView: UITableView!
     
     var tweets = [Tweet]()
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        //signoutAction(self)
         
         TwitterClient.sharedInstance.homeTimelineWithParams(nil, completion: { (tweets, error) -> () in
             if (error == nil) {
@@ -31,6 +33,12 @@ class TweetsViewController: UIViewController, UITableViewDataSource, UITableView
         // Do any additional setup after loading the view, typically from a nib.
     }
 
+    @IBAction func signoutAction(sender: AnyObject) {
+        User.currentUser?.logout()
+        self.dismissViewControllerAnimated(true, completion: nil)
+    }
+    
+    
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         var cell = tableView.dequeueReusableCellWithIdentifier("TweetCell") as TweetCell
         cell.tweet = self.tweets[indexPath.row]

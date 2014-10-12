@@ -30,7 +30,8 @@
                     </view>
                     <navigationItem key="navigationItem" id="KcY-5G-v1g"/>
                     <connections>
-                        <segue destination="vXZ-lx-hvc" kind="modal" id="6UC-60-AJN"/>
+                        <segue destination="QUi-wc-tDu" kind="modal" id="6UC-60-AJN"/>
+                        <segue destination="vXZ-lx-hvc" kind="modal" identifier="loginSegue" id="8Sj-2b-NP0"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="NBA-8P-LHd" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -110,6 +111,9 @@
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                             </button>
+                            <connections>
+                                <action selector="signoutAction:" destination="vXZ-lx-hvc" id="i8M-wm-hTK"/>
+                            </connections>
                         </barButtonItem>
                         <barButtonItem key="rightBarButtonItem" title="New" id="hDE-eN-SjK">
                             <button key="customView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="W5q-7K-ycE">
@@ -122,12 +126,13 @@
                         </barButtonItem>
                     </navigationItem>
                     <connections>
+                        <outlet property="signoutButton" destination="Ihz-Sh-EUK" id="dcx-WR-Lx3"/>
                         <outlet property="tableView" destination="wIH-OD-M3P" id="9GW-NJ-mLb"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="x5A-6p-PRh" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="828" y="128"/>
+            <point key="canvasLocation" x="1279" y="128"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="5c7-ky-jQ0">
@@ -147,10 +152,31 @@
             </objects>
             <point key="canvasLocation" x="74" y="128"/>
         </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="cYQ-rb-JBI">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="QUi-wc-tDu" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="w8o-bD-JC0">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="vXZ-lx-hvc" kind="relationship" relationship="rootViewController" id="tue-nh-GJK"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Udw-td-DnO" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="828" y="128"/>
+        </scene>
     </scenes>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">
         <simulatedStatusBarMetrics key="statusBar"/>
         <simulatedOrientationMetrics key="orientation"/>
         <simulatedScreenMetrics key="destination" type="retina4"/>
     </simulatedMetricsContainer>
+    <inferredMetricsTieBreakers>
+        <segue reference="8Sj-2b-NP0"/>
+    </inferredMetricsTieBreakers>
 </document>
