@@ -9,7 +9,6 @@
 import UIKit
 
 class TweetsViewController: UIViewController, UITableViewDataSource, UITableViewDelegate {
-    @IBOutlet weak var signoutButton: UIBarButtonItem!
     @IBOutlet weak var tableView: UITableView!
     
     var tweets = [Tweet]()
@@ -30,6 +29,7 @@ class TweetsViewController: UIViewController, UITableViewDataSource, UITableView
         
         tableView.dataSource = self
         tableView.delegate = self
+        tableView.reloadData()
         // Do any additional setup after loading the view, typically from a nib.
     }
 

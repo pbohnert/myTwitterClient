@@ -30,8 +30,7 @@
                     </view>
                     <navigationItem key="navigationItem" id="KcY-5G-v1g"/>
                     <connections>
-                        <segue destination="QUi-wc-tDu" kind="modal" id="6UC-60-AJN"/>
-                        <segue destination="vXZ-lx-hvc" kind="modal" identifier="loginSegue" id="8Sj-2b-NP0"/>
+                        <segue destination="QUi-wc-tDu" kind="modal" identifier="loginSegue" id="6UC-60-AJN"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="NBA-8P-LHd" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -47,7 +46,7 @@
                         <viewControllerLayoutGuide type="bottom" id="2fi-mo-0CV"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="kh9-bI-dsS">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="504"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="103" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="wIH-OD-M3P">
@@ -110,10 +109,10 @@
                                 <state key="normal" title="Signout">
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
+                                <connections>
+                                    <action selector="signoutAction:" destination="vXZ-lx-hvc" eventType="touchUpInside" id="ppy-jM-TVK"/>
+                                </connections>
                             </button>
-                            <connections>
-                                <action selector="signoutAction:" destination="vXZ-lx-hvc" id="i8M-wm-hTK"/>
-                            </connections>
                         </barButtonItem>
                         <barButtonItem key="rightBarButtonItem" title="New" id="hDE-eN-SjK">
                             <button key="customView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="W5q-7K-ycE">
@@ -126,7 +125,6 @@
                         </barButtonItem>
                     </navigationItem>
                     <connections>
-                        <outlet property="signoutButton" destination="Ihz-Sh-EUK" id="dcx-WR-Lx3"/>
                         <outlet property="tableView" destination="wIH-OD-M3P" id="9GW-NJ-mLb"/>
                     </connections>
                 </viewController>
@@ -155,15 +153,17 @@
         <!--Navigation Controller-->
         <scene sceneID="cYQ-rb-JBI">
             <objects>
-                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="QUi-wc-tDu" sceneMemberID="viewController">
+                <navigationController storyboardIdentifier="TweetsNavigationController" automaticallyAdjustsScrollViewInsets="NO" id="QUi-wc-tDu" sceneMemberID="viewController">
                     <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="w8o-bD-JC0">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" translucent="NO" id="w8o-bD-JC0">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
+                        <color key="barTintColor" red="0.46666666666666667" green="0.71764705882352942" blue="0.93333333333333335" alpha="1" colorSpace="calibratedRGB"/>
                     </navigationBar>
                     <nil name="viewControllers"/>
                     <connections>
                         <segue destination="vXZ-lx-hvc" kind="relationship" relationship="rootViewController" id="tue-nh-GJK"/>
+                        <segue destination="vXZ-lx-hvc" kind="push" identifier="tweetListSegue" id="xhU-n7-HBx"/>
                     </connections>
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Udw-td-DnO" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -177,6 +177,6 @@
         <simulatedScreenMetrics key="destination" type="retina4"/>
     </simulatedMetricsContainer>
     <inferredMetricsTieBreakers>
-        <segue reference="8Sj-2b-NP0"/>
+        <segue reference="xhU-n7-HBx"/>
     </inferredMetricsTieBreakers>
 </document>

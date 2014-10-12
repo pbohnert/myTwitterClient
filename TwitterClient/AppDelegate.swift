@@ -25,6 +25,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         //navigationBarAppearace.barTintColor = UIColor.whiteColor()  //another way of setting background color on the nav bar
         navigationBarAppearace.tintColor = UIColor.whiteColor()   // how you set text color for nav bar button items.
         
+        navigationController.navigationBar.hidden=false
+        
         //next two lines are how we set text color for nav bar title.
         let titleDict: NSDictionary = [NSForegroundColorAttributeName: UIColor.whiteColor()]
         navigationController.navigationBar.titleTextAttributes = titleDict
@@ -33,7 +35,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         if User.currentUser != nil {
             // go to the logged in screen
             println("current user detected: \(User.currentUser?.name)")
-            var vc = storyboard.instantiateViewControllerWithIdentifier("TweetsViewController") as UIViewController
+            var vc = storyboard.instantiateViewControllerWithIdentifier("TweetsNavigationController") as UIViewController
             window?.rootViewController = vc
         }
         return true
