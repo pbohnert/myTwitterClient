@@ -22,7 +22,8 @@ class TweetCell: UITableViewCell {
             self.nameLabel.text = self.tweet!.user.name
             self.useridLabel.text = "@\(self.tweet!.user.screenName)"
             self.tweetLabel.text = self.tweet!.text
-            //self.timestampLabel.text = self.tweet!.createdAt as String
+            self.timestampLabel.text = self.tweet!.createdAt.shortTimeAgoSinceNow()
+            
             
             self.personImage.layer.cornerRadius = 10.0
             self.personImage.clipsToBounds = true
