@@ -20,16 +20,11 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         let navigationController = application.windows[0].rootViewController as UINavigationController
         navigationController.navigationBar.barTintColor = UIColor(red: 119/255.0, green: 183/255.0, blue: 238/255.0, alpha: 8/255.0)  //one way to set background color on nav bar.
         
-        //next three lines are another way to set background color on nav bar AND text color for buttons.
-        var navigationBarAppearace = UINavigationBar.appearance()
-        //navigationBarAppearace.barTintColor = UIColor.whiteColor()  //another way of setting background color on the nav bar
-        navigationBarAppearace.tintColor = UIColor.whiteColor()   // how you set text color for nav bar button items.
+        //next three lines are how to set text color for buttons AND text color for title of all nav bars for all controllers.
+        var navigationBarAppearance = UINavigationBar.appearance()
+        navigationBarAppearance.tintColor = UIColor.whiteColor()   // how you set text color for nav bar button items.
+        navigationBarAppearance.titleTextAttributes = [NSForegroundColorAttributeName:UIColor.whiteColor()] //set's color for title
         
-        navigationController.navigationBar.hidden=false
-        
-        //next two lines are how we set text color for nav bar title.
-        let titleDict: NSDictionary = [NSForegroundColorAttributeName: UIColor.whiteColor()]
-        navigationController.navigationBar.titleTextAttributes = titleDict
         
         NSNotificationCenter.defaultCenter().addObserver(self, selector: "userDidLogout", name: userDidLogoutNotification, object: nil)
         if User.currentUser != nil {

@@ -1,18 +1,34 @@
 //
-//  LoginViewController.swift
+//  TweetDetailViewController.swift
 //  TwitterClient
 //
-//  Created by Peter Bohnert on 10/5/14.
+//  Created by Peter Bohnert on 10/13/14.
 //  Copyright (c) 2014 Blue Lotus Labs. All rights reserved.
 //
 
 import UIKit
 
-class LoginViewController: UIViewController {
+class TweetDetailViewController: UIViewController {
+
+    @IBOutlet weak var nameLabel: UILabel!
+    @IBOutlet weak var screenNameLabel: UILabel!
+    @IBOutlet weak var tweetImage: UIImageView!
+    @IBOutlet weak var tweetText: UILabel!
+    @IBOutlet weak var timestampLabel: UILabel!
     
+      var tweet: Tweet!
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        self.tweetImage.setImageWithURL(tweet?.user.profileImageURL)
+        self.tweetImage.layer.cornerRadius = 10.0
+        self.tweetImage.clipsToBounds = true
+        self.nameLabel.text = tweet?.user.name
+        self.screenNameLabel.text = "@\(tweet!.user.screenName)"
+        self.tweetText.text = tweet?.text
+        self.timestampLabel.text = tweet?.createdAtString
+
         // Do any additional setup after loading the view.
     }
 
@@ -21,19 +37,6 @@ class LoginViewController: UIViewController {
         // Dispose of any resources that can be recreated.
     }
     
-    @IBAction func onLogin(sender: AnyObject) {
-        println("doing our IBAction")
-        TwitterClient.sharedInstance.loginWithCompletion() {
-            (user: User?, error: NSError?) in
-            if user != nil {
-                //perform seque
-                self.performSegueWithIdentifier("loginSegue", sender: self)
-            } else {
-                // handle login error
-                println("couldn't get user")
-            }
-        }
-    }
 
     /*
     // MARK: - Navigation

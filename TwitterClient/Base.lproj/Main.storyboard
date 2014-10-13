@@ -53,7 +53,7 @@
                                 <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <prototypes>
-                                    <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="TweetCell" rowHeight="103" id="Ksn-7P-Yhc" customClass="TweetCell" customModule="TwitterClient" customModuleProvider="target">
+                                    <tableViewCell contentMode="scaleToFill" selectionStyle="default" accessoryType="disclosureIndicator" indentationWidth="10" reuseIdentifier="TweetCell" rowHeight="103" id="Ksn-7P-Yhc" customClass="TweetCell" customModule="TwitterClient" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="Ksn-7P-Yhc" id="nvP-s3-cai">
@@ -61,13 +61,13 @@
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Name" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="VAF-p4-Huf">
                                                     <rect key="frame" x="82" y="17" width="85" height="23"/>
-                                                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                    <fontDescription key="fontDescription" type="boldSystem" pointSize="13"/>
                                                     <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="tstamp" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Edm-J1-7v2">
                                                     <rect key="frame" x="267" y="19" width="45" height="23"/>
-                                                    <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="11"/>
                                                     <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
@@ -82,7 +82,7 @@
                                                 </label>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="userId" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="vu7-9P-FJD">
                                                     <rect key="frame" x="168" y="18" width="74" height="23"/>
-                                                    <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="11"/>
                                                     <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
@@ -94,6 +94,7 @@
                                             <outlet property="timestampLabel" destination="Edm-J1-7v2" id="qSN-mp-AyQ"/>
                                             <outlet property="tweetLabel" destination="49O-aB-hPl" id="bpn-AG-CCi"/>
                                             <outlet property="useridLabel" destination="vu7-9P-FJD" id="s2h-Al-dJe"/>
+                                            <segue destination="Hyi-46-Uv7" kind="push" identifier="tweetDetailsSegue" id="JVJ-pf-C7J"/>
                                         </connections>
                                     </tableViewCell>
                                 </prototypes>
@@ -102,23 +103,26 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                     </view>
                     <navigationItem key="navigationItem" title="Home" id="K5L-uR-6xc">
-                        <barButtonItem key="leftBarButtonItem" title="Signout" id="Ihz-Sh-EUK">
+                        <barButtonItem key="leftBarButtonItem" title="Signout" style="plain" id="Ihz-Sh-EUK">
                             <button key="customView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="YHe-Xm-Uby">
                                 <rect key="frame" x="-23" y="-15" width="71" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" title="Signout">
+                                    <color key="titleColor" red="1" green="0.97304277559999997" blue="0.99440004910000002" alpha="1" colorSpace="calibratedRGB"/>
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <connections>
                                     <action selector="signoutAction:" destination="vXZ-lx-hvc" eventType="touchUpInside" id="ppy-jM-TVK"/>
                                 </connections>
                             </button>
+                            <color key="tintColor" red="1" green="0.97304277559999997" blue="0.99440004910000002" alpha="1" colorSpace="calibratedRGB"/>
                         </barButtonItem>
-                        <barButtonItem key="rightBarButtonItem" title="New" id="hDE-eN-SjK">
+                        <barButtonItem key="rightBarButtonItem" title="New" style="plain" id="hDE-eN-SjK">
                             <button key="customView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="W5q-7K-ycE">
                                 <rect key="frame" x="-23" y="-15" width="71" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" title="New">
+                                    <color key="titleColor" red="1" green="0.97304277559999997" blue="0.99440004910000002" alpha="1" colorSpace="calibratedRGB"/>
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                             </button>
@@ -131,6 +135,70 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="x5A-6p-PRh" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1279" y="128"/>
+        </scene>
+        <!--Tweet-->
+        <scene sceneID="LO3-jV-0Gw">
+            <objects>
+                <viewController storyboardIdentifier="TweetDetailViewController" id="Hyi-46-Uv7" customClass="TweetDetailViewController" customModule="TwitterClient" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="nGq-8Z-Byw"/>
+                        <viewControllerLayoutGuide type="bottom" id="N0O-8N-eEY"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="N4v-cj-eA5">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="504"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="LcF-pt-MD7">
+                                <rect key="frame" x="16" y="39" width="118" height="109"/>
+                            </imageView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="name" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="F1z-VE-nkg">
+                                <rect key="frame" x="144" y="48" width="160" height="25"/>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="13"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="screenName" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="YvZ-Lc-osV">
+                                <rect key="frame" x="144" y="70" width="160" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="11"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="tstamp" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="zXR-Ei-GdT">
+                                <rect key="frame" x="24" y="216" width="223" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="11"/>
+                                <color key="textColor" red="0.73725490199999999" green="0.72549019609999998" blue="0.64705882349999999" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="tweet" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="uDF-je-Dxb">
+                                <rect key="frame" x="24" y="145" width="280" height="72"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="13"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                    <toolbarItems/>
+                    <navigationItem key="navigationItem" title="Tweet" id="Ecm-gb-63w">
+                        <barButtonItem key="backBarButtonItem" title="Home" id="tA7-Gh-As0">
+                            <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        </barButtonItem>
+                        <barButtonItem key="rightBarButtonItem" title="Reply" id="qjU-MB-6G2">
+                            <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        </barButtonItem>
+                    </navigationItem>
+                    <simulatedToolbarMetrics key="simulatedBottomBarMetrics"/>
+                    <connections>
+                        <outlet property="nameLabel" destination="F1z-VE-nkg" id="thJ-1p-DMK"/>
+                        <outlet property="screenNameLabel" destination="YvZ-Lc-osV" id="DVe-HR-UK2"/>
+                        <outlet property="timestampLabel" destination="zXR-Ei-GdT" id="jCY-P1-5Oq"/>
+                        <outlet property="tweetImage" destination="LcF-pt-MD7" id="GYP-lK-gxJ"/>
+                        <outlet property="tweetText" destination="uDF-je-Dxb" id="hZ4-tg-0Go"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="bHH-B7-oJQ" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1647" y="515"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="5c7-ky-jQ0">
@@ -179,4 +247,5 @@
     <inferredMetricsTieBreakers>
         <segue reference="xhU-n7-HBx"/>
     </inferredMetricsTieBreakers>
+    <color key="tintColor" red="0.46666666670000001" green="0.71764705880000002" blue="0.93333333330000001" alpha="1" colorSpace="calibratedRGB"/>
 </document>
