@@ -12,29 +12,16 @@ class TweetsViewController: UIViewController, UITableViewDataSource, UITableView
     @IBOutlet weak var tableView: UITableView!
     
     var tweets = [Tweet]()
+    var refreshControl:UIRefreshControl!
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-     //   self.navigationItem.rightBarButtonItem?.enabled
-     //   self.navigationController?.navigationItem.leftBarButtonItem?.enabled
-     //   self.navigationController?.navigationItem.rightBarButtonItem?.enabled
-     //   self.navigationController?.navigationItem.rightBarButtonItem?.tintColor = UIColor.whiteColor()
-     //   self.navigationController?.navigationBar.translucent = false
-    //    self.navigationController?.navigationBar.tintColor = UIColor.whiteColor()
-        
+
         self.navigationItem.title = "Home"
-                
         //signoutAction(self)
-        
-        TwitterClient.sharedInstance.homeTimelineWithParams(nil, completion: { (tweets, error) -> () in
-            if (error == nil) {
-                self.tweets = tweets!
-                self.tableView.reloadData()
-            } else {
-                println("error loading tweets")
-            }
-        })
+    
+        setUpRefreshControl()
+        homeTimeLine()
         
         tableView.dataSource = self
         tableView.delegate = self
@@ -66,6 +53,31 @@ class TweetsViewController: UIViewController, UITableViewDataSource, UITableView
             var cell = sender as TweetCell
             detailsController.tweet = cell.tweet
         }
+    }
+    
+    func homeTimeLine() {
+        TwitterClient.sharedInstance.homeTimelineWithParams(nil, completion: { (tweets, error) -> () in
+            if (error == nil) {
+                self.tweets = tweets!
+                self.tableView.reloadData()
+                self.refreshControl.endRefreshing()
+                self.tableView.reloadData()
+            } else {
+                println("error loading tweets")
+            }
+        })
+    }
+    
+    func setUpRefreshControl() {
+        // set up pull to refresh
+        self.refreshControl = UIRefreshControl()
+        self.refreshControl.attributedTitle = NSAttributedString(string: "Pull to refresh")
+        self.refreshControl.addTarget(self, action: "refresh:", forControlEvents: UIControlEvents.ValueChanged)
+        self.tableView.addSubview(refreshControl)
+    }
+    
+    func refresh(sender: AnyObject) {
+        homeTimeLine()
     }
     
     override func didReceiveMemoryWarning() {
