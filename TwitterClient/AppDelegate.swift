@@ -17,7 +17,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
         // Override point for customization after application launch.
         //next two lines are one way to set background color on nav bar.
-        let navigationController = application.windows[0].rootViewController as UINavigationController
+        let navigationController = application.windows[0].rootViewController as! UINavigationController
         navigationController.navigationBar.barTintColor = UIColor(red: 119/255.0, green: 183/255.0, blue: 238/255.0, alpha: 8/255.0)  //one way to set background color on nav bar.
         
         //next three lines are how to set text color for buttons AND text color for title of all nav bars for all controllers.
@@ -30,14 +30,14 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         if User.currentUser != nil {
             // go to the logged in screen
             println("current user detected: \(User.currentUser?.name)")
-            var vc = storyboard.instantiateViewControllerWithIdentifier("TweetsNavigationController") as UIViewController
+            var vc = storyboard.instantiateViewControllerWithIdentifier("TweetsNavigationController") as! UIViewController
             window?.rootViewController = vc
         }
         return true
     }
 
     func userDidLogout() {
-        var vc = storyboard.instantiateInitialViewController() as UIViewController
+        var vc = storyboard.instantiateInitialViewController() as! UIViewController
         window?.rootViewController = vc
         
     }
@@ -63,7 +63,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         // Called when the application is about to terminate. Save data if appropriate. See also applicationDidEnterBackground:.
     }
     
-    func application(application: UIApplication, openURL url: NSURL, sourceApplication: String, annotation: AnyObject?) -> Bool {
+    func application(application: UIApplication, openURL url: NSURL, sourceApplication: String?, annotation: AnyObject?) -> Bool {
         
         TwitterClient.sharedInstance.openURL(url)
         

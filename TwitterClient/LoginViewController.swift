@@ -22,7 +22,7 @@ class LoginViewController: UIViewController {
     }
     
     @IBAction func onLogin(sender: AnyObject) {
-        println("doing our IBAction")
+       // println("doing our IBAction")
         TwitterClient.sharedInstance.loginWithCompletion() {
             (user: User?, error: NSError?) in
             if user != nil {
